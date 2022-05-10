@@ -1,0 +1,25 @@
+@font-face {
+    font-family: mojFont;
+    src: url(font/Montserrat-Regular.ttf);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Exo', sans-serif;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: mojFont, sans-serif;
+    scroll-behavior: smooth;
+}
+
+#wrapper {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+    background-color: rgb(22, 170, 170);
+}
