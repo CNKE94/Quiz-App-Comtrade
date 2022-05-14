@@ -33,5 +33,9 @@ function podaciJson() {
         let question = JSON.parse(this.responseText);
         console.log(question);
       }
+      if (this.status >= 400) {
+        let greska = new Error("Request failed:" + xHr.statusText);
+        console.log(greska);
+      }
   }
 }
