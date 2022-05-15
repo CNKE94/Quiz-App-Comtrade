@@ -156,3 +156,20 @@ body {
     border-radius: 15px 7px;
     margin: 2px 0 0 27px;
 }
+
+/*Quiz Questions*/
+
+#quiz #question {
+    position: absolute;
+    top: 90px;
+    display: flex;
+    flex-direction: row;
+}
+
+#quiz #question h2 {
+    font-size: 27px;
+}
+
+#quiz #question h2:first-child {
+    margin: 0 10px 0 5px;
+}
