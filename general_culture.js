@@ -54,7 +54,7 @@ function podaciJson() {
         console.log(greska);
       }
   }
-  xHr.open("GET", "json/istorija.json");
+  xHr.open("GET", "json/opstaKultura.json");
   xHr.send();
 }
 podaciJson();
