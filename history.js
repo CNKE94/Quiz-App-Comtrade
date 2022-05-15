@@ -32,10 +32,29 @@ function podaciJson() {
       if (this.readyState == 4 && this.status == 200) {
         let question = JSON.parse(this.responseText);
         console.log(question);
+        
+        let currentQuiz = 0;
+        let correct = 0;
+        let timer = 0;
+        let interval = 0;
+
+        let elementClicked = false;
+
+        start.addEventListener("click", () => {
+            start.style.display = "none";
+            guide.style.display = "block";
+        });
+        
+        exit.addEventListener("click", () => {
+            window.location.href='/index.html';
+        });
       }
       if (this.status >= 400) {
         let greska = new Error("Request failed:" + xHr.statusText);
         console.log(greska);
       }
   }
+  xHr.open("GET", "json/istorija.json");
+  xHr.send();
 }
+podaciJson();
