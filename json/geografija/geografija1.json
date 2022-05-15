@@ -1,0 +1,92 @@
+[
+    {
+        "questionNum": 1,
+        "question": "U kom gradu se nalazi Crveni Trg?",
+        "a": "Moskva",
+        "b": "Berlin",
+        "c": "Madrid",
+        "d": "Kairo",
+        "correct": 0
+    },
+    {
+        "questionNum": 2,
+        "question": "Kairo leži na kojoj reci?",
+        "a": "Tigar",
+        "b": "Eufrat",
+        "c": "Nil",
+        "d": "Kongo",
+        "correct": 2
+    },
+    {
+        "questionNum": 3,
+        "question": "Brisel je glavni grad?",
+        "a": "Holandije",
+        "b": "Belgije",
+        "c": "Luksemburga",
+        "d": "Danske",
+        "correct": 1
+    },
+    {
+        "questionNum": 4,
+        "question": "Najveća pustinja na svetu?",
+        "a": "Gobi",
+        "b": "Australijska pustinja",
+        "c": "Arabijska pustinja",
+        "d": "Sahara",
+        "correct": 3
+    },
+    {
+        "questionNum": 5,
+        "question": "Gde je zid plača?",
+        "a": "Nazaret",
+        "b": "Aman",
+        "c": "Jerusalim",
+        "d": "Tel Aviv",
+        "correct": 2
+    },
+    {
+        "questionNum": 6,
+        "question": "Kojoj zemlji pripada ostrvo Sardinija?",
+        "a": "Francuskoj",
+        "b": "Italiji",
+        "c": "Španiji",
+        "d": "Malti",
+        "correct": 1
+    },
+    {
+        "questionNum": 7,
+        "question": "Koja je najmanja drzava na svetu?",
+        "a": "Gibraltar",
+        "b": "Američka Samoa",
+        "c": "Kajmanska ostrva",
+        "d": "Vatikan",
+        "correct": 3
+    },
+    {
+        "questionNum": 8,
+        "question": "Koji kanal spaja Atlantski i Tihi okean?",
+        "a": "Panamski",
+        "b": "Suecki",
+        "c": "Lamanš",
+        "d": "Korintski",
+        "correct": 0
+    },
+    {
+        "questionNum": 9,
+        "question": "Koliko ima kontinenta u svetu?",
+        "a": "6",
+        "b": "5",
+        "c": "8",
+        "d": "7",
+        "correct": 3
+    },
+    {
+        "questionNum": 10,
+        "question": "Koji je najsušniji naseljeni kontinent na svijetu?",
+        "a": "Antartktik",
+        "b": "Australija",
+        "c": "Afrika",
+        "d": "Azija",
+        "correct": 1
+    }
+]

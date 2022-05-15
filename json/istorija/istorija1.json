@@ -1,0 +1,92 @@
+[
+    {
+        "questionNum": 1,
+        "question": "Kako se zvao konj Aleksandra Makedonskog?",
+        "a": "Bukefal",
+        "b": "Pegaz",
+        "c": "Hipokampus",
+        "d": "Arion",
+        "correct": 0
+    },
+    {
+        "questionNum": 2,
+        "question": "Prvi čovek u svemiru bio je?",
+        "a": "Rus",
+        "b": "Nemac",
+        "c": "Amerikanac",
+        "d": "Kinez",
+        "correct": 0
+    },
+    {
+        "questionNum": 3,
+        "question": "Šta je urađeno Versajskim ugovorom?",
+        "a": "Okončana Francuska revolucija",
+        "b": "Potpisan sporazum između Nemačke i Poljske",
+        "c": "Okončan Prvi svetski rat",
+        "d": "Okončan Drugi svetski rat",
+        "correct": 2
+    },
+    {
+        "questionNum": 4,
+        "question": "Koje carstvo je utemeljio Džingis-kan?",
+        "a": "Osmansko",
+        "b": "Persijsko",
+        "c": "Franačko",
+        "d": "Mongolsko",
+        "correct": 3
+    },
+    {
+        "questionNum": 5,
+        "question": "Koja civilizacija je izgradila Maču Pikču?",
+        "a": "Maje",
+        "b": "Inke",
+        "c": "Asteci",
+        "d": "Vavilonci",
+        "correct": 1
+    },
+    {
+        "questionNum": 6,
+        "question": "Koje godine je počeo Drugi svetski rat?",
+        "a": "1919",
+        "b": "1934",
+        "c": "1939",
+        "d": "1918",
+        "correct": 2
+    },
+    {
+        "questionNum": 7,
+        "question": "Koje carstvo je bilo najveće u istoriji?",
+        "a": "Britansko",
+        "b": "Špansko",
+        "c": "Mongolsko",
+        "d": "Rusko",
+        "correct": 0
+    },
+    {
+        "questionNum": 8,
+        "question": "Kako su se prezivala braća koja su izvela prvi uspešan let?",
+        "a": "Braća Rebenbaker",
+        "b": "Braća Uliks",
+        "c": "Braća Kenedi",
+        "d": "Braća Rajt",
+        "correct": 3
+    },
+    {
+        "questionNum": 9,
+        "question": "Koje godine je bila Kosovska bitka?",
+        "a": "1389",
+        "b": "1434",
+        "c": "1278",
+        "d": "1355",
+        "correct": 0
+    },
+    {
+        "questionNum": 10,
+        "question": "U kojoj današnjoj državi je 1914. godine ubijen nadvojvoda Franc Ferdinand?",
+        "a": "Bosni",
+        "b": "Poljskoj",
+        "c": "Mađarskoj",
+        "d": "Francuskoj",
+        "correct": 0
+    }
+]

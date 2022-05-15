@@ -1,0 +1,92 @@
+[
+    {
+        "questionNum": 1,
+        "question": "Koja od ovih država nema vojsku??",
+        "a": "Honduras",
+        "b": "Island",
+        "c": "Japan",
+        "d": "Luksemburg",
+        "correct": 1
+    },
+    {
+        "questionNum": 2,
+        "question": "Stanovnici koje zemlje sebe zovu Heleni",
+        "a": "Grci",
+        "b": "Libijci",
+        "c": "Kiprani",
+        "d": "Turci",
+        "correct": 0
+    },
+    {
+        "questionNum": 3,
+        "question": "Kako se zove najveći islamski prorok?",
+        "a": "Mojsije",
+        "b": "Alah",
+        "c": "Mehmed",
+        "d": "Muhamed",
+        "correct": 3
+    },
+    {
+        "questionNum": 4,
+        "question": "Dejvis kup je međunarodno takmičenje u?",
+        "a": "fudbalu",
+        "b": "odbojci",
+        "c": "tenisu",
+        "d": "rukometu",
+        "correct": 2
+    },
+    {
+        "questionNum": 5,
+        "question": "Koja krvna grupa je univerzalni davalac krvi?",
+        "a": "AB",
+        "b": "A",
+        "c": "B",
+        "d": "0",
+        "correct": 3
+    },
+    {
+        "questionNum": 6,
+        "question": "Ko je rekao „Veni, vidi, vici“?",
+        "a": "Tacit",
+        "b": "Klaudije",
+        "c": "Julije Cezar",
+        "d": "Neron",
+        "correct": 2
+    },
+    {
+        "questionNum": 7,
+        "question": "Dijasporu predstavlja?",
+        "a": "narod koji živi u oskudici",
+        "b": "narod koji živi u blagostanju",
+        "c": "narod izolovan od međunarodne zajednice",
+        "d": "deo naroda rasut po svetu",
+        "correct": 3
+    },
+    {
+        "questionNum": 8,
+        "question": "Mahatma Gandri se borio za nezavisnost?",
+        "a": "Tibeta",
+        "b": "Nepala",
+        "c": "Indije",
+        "d": "Vijetnama",
+        "correct": 2
+    },
+    {
+        "questionNum": 9,
+        "question": "Sedište UN je u kom gradu?",
+        "a": "Parizu",
+        "b": "Njujorku",
+        "c": "Varšavi",
+        "d": "Londonu",
+        "correct": 1
+    },
+    {
+        "questionNum": 10,
+        "question": "Koliko padeža ima srpski jezik?",
+        "a": "7",
+        "b": "5",
+        "c": "10",
+        "d": "3",
+        "correct": 0
+    }
+]

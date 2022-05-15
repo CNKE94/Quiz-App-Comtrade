@@ -1,0 +1,92 @@
+[
+    {
+        "questionNum": 1,
+        "question": "Brazil je nekada bio kolonija koje evropske zemlje?",
+        "a": "Portugal",
+        "b": "Španija",
+        "c": "Engleska",
+        "d": "Nemačka",
+        "correct": 0
+    },
+    {
+        "questionNum": 2,
+        "question": "Pod kojim nadimkom je poznat Ivan IV, prvi ruski car?",
+        "a": "Lepi",
+        "b": "Grozni",
+        "c": "Jaki",
+        "d": "Lukavi",
+        "correct": 1
+    },
+    {
+        "questionNum": 3,
+        "question": "Koji je egipatski grad osnovao Aleksandar Veliki?",
+        "a": "Kairo",
+        "b": "Luksor",
+        "c": "Aleksandrija",
+        "d": "Hurgada",
+        "correct": 2
+    },
+    {
+        "questionNum": 4,
+        "question": "Koji su jezici bili službeni jezici Rimskog Carstva?",
+        "a": "latinski i grčki",
+        "b": "latinski i italijanski",
+        "c": "grčki i nemački",
+        "d": "francuski",
+        "correct": 0
+    },
+    {
+        "questionNum": 5,
+        "question": "U grčkoj mitologiji, tokom kojeg rata je heroj Ahil ubijen?",
+        "a": "Hladni rat",
+        "b": "Persijski rat",
+        "c": "Stogodišnji rat",
+        "d": "Trojanski rat",
+        "correct": 3
+    },
+    {
+        "questionNum": 6,
+        "question": "Nelson Mandela bio je predsednik koje zemlje?",
+        "a": "Sudana",
+        "b": "Nigerije",
+        "c": "Južnoafričke Republike",
+        "d": "Senegala",
+        "correct": 2
+    },
+    {
+        "questionNum": 7,
+        "question": "Romul i Rem mitski su osnivači kojeg grada?",
+        "a": "Milana",
+        "b": "Rima",
+        "c": "Carigrada",
+        "d": "Dubrovnika",
+        "correct": 1
+    },
+    {
+        "questionNum": 8,
+        "question": "Koje godine je bio Berlinski kongres?",
+        "a": "1898",
+        "b": "1904",
+        "c": "1912",
+        "d": "1878",
+        "correct": 3
+    },
+    {
+        "questionNum": 9,
+        "question": "Koje godine je SPC stekla autokefalnost?",
+        "a": "1219",
+        "b": "1434",
+        "c": "1278",
+        "d": "1355",
+        "correct": 0
+    },
+    {
+        "questionNum": 10,
+        "question": "Vrhovni bog u grčkoj mitologiji je?",
+        "a": "Had",
+        "b": "Zevs",
+        "c": "Oziris",
+        "d": "Herkul",
+        "correct": 1
+    }
+]

@@ -1,0 +1,92 @@
+[
+    {
+        "questionNum": 1,
+        "question": "Ateista je onaj ko?",
+        "a": "Ne veruje u Boga",
+        "b": "Nije pošten",
+        "c": "Nije školovan",
+        "d": "Nije etičan",
+        "correct": 0
+    },
+    {
+        "questionNum": 2,
+        "question": "Vuk Stefanović Karadzić je rođen u?",
+        "a": "Banja luci",
+        "b": "Tršiću",
+        "c": "Beču",
+        "d": "Glamoču",
+        "correct": 1
+    },
+    {
+        "questionNum": 3,
+        "question": "Tutankamon je bio?",
+        "a": "grčki vojskovođa",
+        "b": "egipatski faraon",
+        "c": "grčki govornik",
+        "d": "rimski vojskovođa",
+        "correct": 2
+    },
+    {
+        "questionNum": 4,
+        "question": "Nadežda Petrović je poznata?",
+        "a": "Slikarka",
+        "b": "Pesnikinja",
+        "c": "Glumica",
+        "d": "Matematičarka",
+        "correct": 0
+    },
+    {
+        "questionNum": 5,
+        "question": "Ko je postavio teoriju gravitacije?",
+        "a": "Rene Dekart",
+        "b": "Albert Ajnštajn",
+        "c": "Majkl Faradej",
+        "d": "Isak Njutn",
+        "correct": 3
+    },
+    {
+        "questionNum": 6,
+        "question": "SFRJ je bila jedna od osnivača",
+        "a": "pokreta nesvrstanih",
+        "b": "pokreta nezavisnih",
+        "c": "pokreta neutralnih",
+        "d": "pokreta nevinih",
+        "correct": 0
+    },
+    {
+        "questionNum": 7,
+        "question": "Reka Dunav izvire u?",
+        "a": "Sloveniji",
+        "b": "Srbiji",
+        "c": "Rumuniji",
+        "d": "Nemačkoj",
+        "correct": 3
+    },
+    {
+        "questionNum": 8,
+        "question": "Najviši planinski vrh na svetu je?",
+        "a": "Kilimandžaro",
+        "b": "Mon Blan",
+        "c": "Mont Everest",
+        "d": "Elbrus",
+        "correct": 2
+    },
+    {
+        "questionNum": 9,
+        "question": "Nauka o stanovništvu naziva se?",
+        "a": "demografija",
+        "b": "etnografija",
+        "c": "dendrologija",
+        "d": "defendologija",
+        "correct": 0
+    },
+    {
+        "questionNum": 10,
+        "question": "Koji sport nosi epitet kraljice sportova?",
+        "a": "odbojka",
+        "b": "rukomet",
+        "c": "tenis",
+        "d": "atletika",
+        "correct": 3
+    }
+]

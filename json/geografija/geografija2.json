@@ -1,0 +1,92 @@
+[
+    {
+        "questionNum": 1,
+        "question": "Sa koliko država se graniči Srbija?",
+        "a": "8",
+        "b": "5",
+        "c": "7",
+        "d": "6",
+        "correct": 0
+    },
+    {
+        "questionNum": 2,
+        "question": "Koji je glavni grad Kube?",
+        "a": "El Salvador",
+        "b": "Havana",
+        "c": "Managva",
+        "d": "San Hoze",
+        "correct": 1
+    },
+    {
+        "questionNum": 3,
+        "question": "Koja zemlja ima suecki kanal?",
+        "a": "Izrael",
+        "b": "Egipat",
+        "c": "Jordan",
+        "d": "Sirija",
+        "correct": 1
+    },
+    {
+        "questionNum": 4,
+        "question": "S kojom zemljom Island dijeli kopnenu granicu?",
+        "a": "Velikom Britanijom",
+        "b": "Francuskom",
+        "c": "Nijednom",
+        "d": "Irskom",
+        "correct": 2
+    },
+    {
+        "questionNum": 5,
+        "question": "Koji je jedini grad koji leži na dva kontitenta?",
+        "a": "Moskva",
+        "b": "Kairo",
+        "c": "Istanbul",
+        "d": "Meksiko Siti",
+        "correct": 2
+    },
+    {
+        "questionNum": 6,
+        "question": "Gdje se nalazi Etna?",
+        "a": "Švajcarskoj",
+        "b": "Italiji",
+        "c": "SAD",
+        "d": "Rusiji",
+        "correct": 1
+    },
+    {
+        "questionNum": 7,
+        "question": "Službeni jezik Brazila?",
+        "a": "Engleski",
+        "b": "Brazilski",
+        "c": "Španski",
+        "d": "Portugalski",
+        "correct": 3
+    },
+    {
+        "questionNum": 8,
+        "question": "Kome pripada Grenland?",
+        "a": "Danskoj",
+        "b": "Irskoj",
+        "c": "Engleskoj",
+        "d": "Norveškoj",
+        "correct": 0
+    },
+    {
+        "questionNum": 9,
+        "question": "Najveća religija je?",
+        "a": "Islam",
+        "b": "Budizam",
+        "c": "Hrišćanstvo",
+        "d": "Hinduizam",
+        "correct": 2
+    },
+    {
+        "questionNum": 10,
+        "question": "Glavni grad Jermenije?",
+        "a": "Tbilisi",
+        "b": "Jerevan",
+        "c": "Baku",
+        "d": "Kišinjev",
+        "correct": 1
+    }
+]

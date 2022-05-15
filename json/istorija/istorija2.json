@@ -1,0 +1,92 @@
+[
+    {
+        "questionNum": 1,
+        "question": "Falanga je naziv za?",
+        "a": "pljačkašku družinu",
+        "b": "jedinica mere za težinu",
+        "c": "vojnu jedinicu pešadije",
+        "d": "laki vojni brod",
+        "correct": 2
+    },
+    {
+        "questionNum": 2,
+        "question": "Šta od sledećeg nije bivša sovjetska republika?",
+        "a": "Rusija",
+        "b": "Jermenija",
+        "c": "Estonija",
+        "d": "Mongolija",
+        "correct": 3
+    },
+    {
+        "questionNum": 3,
+        "question": "U kojoj je zemlji vladala Kleopatra?",
+        "a": "Nubiji",
+        "b": "Mesopotamiji",
+        "c": "Kipru",
+        "d": "Egiptu",
+        "correct": 3
+    },
+    {
+        "questionNum": 4,
+        "question": "Koji se grad nekada zvao Carigrad, Konstantinopolj i Vizant?",
+        "a": "Atina",
+        "b": "Ankara",
+        "c": "Istanbul",
+        "d": "Plovdiv",
+        "correct": 2
+    },
+    {
+        "questionNum": 5,
+        "question": "Šta su Grci koristili za ulazak u Troju?",
+        "a": "Drvenog konja",
+        "b": "Odmazdu",
+        "c": "Infiltraiju",
+        "d": "Katapulte",
+        "correct": 0
+    },
+    {
+        "questionNum": 6,
+        "question": "Koja zemlja je prva upotrebila nuklearno oružje?",
+        "a": "Kina",
+        "b": "Japan",
+        "c": "SAD",
+        "d": "Rusija",
+        "correct": 2
+    },
+    {
+        "questionNum": 7,
+        "question": "Kako se zvao prvi istoričar kojeg nazivaju “Otac Istorije”?",
+        "a": "Hipokrat",
+        "b": "Sokrat",
+        "c": "Tukidid",
+        "d": "Herodot",
+        "correct": 3
+    },
+    {
+        "questionNum": 8,
+        "question": "U kom mestu se nalaze čuvene piramide, jedno od 7 svetskih čuda?",
+        "a": "Kairu",
+        "b": "Gizi",
+        "c": "Aleksandriji",
+        "d": "Luksoru",
+        "correct": 1
+    },
+    {
+        "questionNum": 9,
+        "question": "Ko su bili gladijatori?",
+        "a": "Dvorski službenici",
+        "b": "Kraljeva Garda",
+        "c": "Borci u areni",
+        "d": "Elitna vojska",
+        "correct": 2
+    },
+    {
+        "questionNum": 10,
+        "question": "Gde je krunisan Dušan Silni?",
+        "a": "Skoplju",
+        "b": "Beogradu",
+        "c": "Smederevu",
+        "d": "Nišu",
+        "correct": 0
+    }
+]
