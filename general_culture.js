@@ -24,9 +24,12 @@ let quit = document.querySelector("#quit");
 let startAgain = document.querySelector("#startAgain");
 
 let choice_que = document.querySelectorAll(".choice_que");
+let trophy = document.getElementById("trophy");
+let result_message = document.getElementById("result_message");
 
 function podaciJson() {
   let xHr = new XMLHttpRequest();
+  let random = Math.ceil(Math.random() * 3);
   
   xHr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
@@ -48,6 +51,57 @@ function podaciJson() {
         exit.addEventListener("click", () => {
             window.location.href='/index.html';
         });
+        
+        let countDown = () => {
+            if (timer === 15) {
+                elementClicked = true;
+                clearInterval(interval);
+                next_question.click();
+            } else {
+                timer++;
+                time.innerText = timer;
+            }
+          }
+
+          function loadData(answer, answer1) {
+            let currentQuizData = question[currentQuiz];
+            questionNo.textContent = currentQuizData.questionNum + '.';
+            questionText.textContent = currentQuizData.question;
+
+            if(answer === undefined) {
+                answer = "";
+            }
+
+            if(answer1 === undefined) {
+                answer1 = "";
+            }
+
+            let niz = [option1, option2, option3, option4];
+
+            option1.innerHTML = `${currentQuizData.a} ${niz.indexOf(niz[0]) === question[currentQuiz].correct ? answer : answer1}`;
+            option2.innerHTML = `${currentQuizData.b} ${niz.indexOf(niz[1]) === question[currentQuiz].correct ? answer : answer1}`;
+            option3.innerHTML = `${currentQuizData.c} ${niz.indexOf(niz[2]) === question[currentQuiz].correct ? answer : answer1}`;
+            option4.innerHTML = `${currentQuizData.d} ${niz.indexOf(niz[3]) === question[currentQuiz].correct ? answer : answer1}`;
+
+            timer = 0;
+          }
+        
+          loadData();
+        
+          continueBtn.addEventListener("click", () => {
+            document.body.style.backgroundImage = "url('css/images/bgd_history.jpg')";
+            quiz.style.display = "block";
+            guide.style.display = "none";
+
+            interval = setInterval(countDown, 1000);
+            loadData();
+
+            choice_que.forEach(removeActive => {
+                removeActive.classList.remove("active");
+            })
+        
+            total_correct.textContent = `${correct = 0} od ${question.length} pitanja`;
+          });
       }
       if (this.status >= 400) {
         let greska = new Error("Request failed:" + xHr.statusText);
