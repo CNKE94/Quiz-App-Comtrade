@@ -161,17 +161,17 @@ body {
 
 #quiz #question {
     position: absolute;
-    top: 90px;
+    top: 5.6em;
     display: flex;
     flex-direction: row;
 }
 
 #quiz #question h2 {
-    font-size: 27px;
+    font-size: 1.7em;
 }
 
 #quiz #question h2:first-child {
-    margin: 0 10px 0 5px;
+    margin: 0 0.6em 0 0.2em;
 }
 
 /*Quiz Options*/
