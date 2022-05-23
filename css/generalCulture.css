@@ -173,3 +173,144 @@ body {
 #quiz #question h2:first-child {
     margin: 0 10px 0 5px;
 }
+
+/*Quiz Options*/
+
+#quiz #optionList {
+    height: 25em;
+    width: 100%;
+    position: absolute;
+    top: 10em;
+}
+
+#quiz #optionList h4 {
+    height: 2.5em;
+    width: 27.6em;
+    background: #ff5235;
+    line-height: 2.5em;
+    margin: 0.2em 0;
+    border-radius: 0.3em;
+    padding: 0 1em;
+    font-size: 1.25em;
+    color: #fff;
+    overflow: hidden;
+    border: 1px solid #b0c4d8;
+    cursor: pointer;
+}
+
+#quiz #optionList h4:hover {
+    background: #e91e3a;
+}
+
+#quiz #optionList .active {
+    background: #e91e3a;
+}
+
+#quiz #optionList .disabled {
+    pointer-events: none;
+}
+
+/*Answers Section*/
+
+#quiz #answersSection {
+    height: 3.75em;
+    width: 100%;
+    background: #fafafc;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 1.9em 0;
+}
+
+#quiz #answersSection h3 {
+    margin: 0px 1.6em;
+    /* display: none; */
+}
+
+#quiz #answersSection h3:last-child {
+    height: 2.2em;
+    width: 6em;
+    display: grid;
+    place-items: center;
+    background: #ff5235;
+    position: absolute;
+    right: 0;
+    color: #fff;
+    border: 1px solid #b0c4d8;
+    font-size: 1.125em;
+    border-radius: 1.1em 0.3em;
+    cursor: pointer;
+    margin: 0 1.25em;
+}
+
+#quiz #answersSection h3:hover {
+    background: #e91e3a;
+}
+
+#quiz #answersSection h3:first-child:hover {
+    background: none;
+}
+
+/*Result Section*/
+
+#container #result {
+    height: 32em;
+    width: 28.5em;
+    padding: 1.25em;
+    background: #e7f1fa;
+    border-radius: 1.9em 0.6em;
+    border: 1px solid #b0c4d8;
+    overflow: hidden;
+    display: none;
+    grid-template-columns: 1fr;
+}
+
+#container #result h6 {
+    width: 100%;
+    font-size: 1.6em;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#container #result #points {
+    font-size: 1.9em;
+}
+
+#container #result button {
+    height: 3.1em;
+    width: 13.5em;
+    border: none;
+    outline: none;
+    background: #ff5235;
+    color: #e7f1fa;
+    border: 1px solid #b0c4d8;
+    border-radius: 1.1em 0.3em;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.trophySilver {
+    width: 9em;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.trophyGold {
+    width: 14em;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#container #result button:hover {
+    background: #e91e3a;
+}
+
+.correct {
+    height: 100%;
+    width: fit-content;
+    float: right;
+}
