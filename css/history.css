@@ -272,7 +272,7 @@ body {
     border: 1px solid #b0c4d8;
     overflow: hidden;
     display: none;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 
 #container #result h6 {
@@ -280,6 +280,7 @@ body {
     font-size: 1.6em;
     margin: 0 auto;
     text-align: center;
+    grid-column: span 2;
 }
 
 #container #result #points {
@@ -304,12 +305,14 @@ body {
     width: 9em;
     margin: 0 auto;
     text-align: center;
+    grid-column: span 2;
 }
 
 .trophyGold {
     width: 14em;
     text-align: center;
     margin: 0 auto;
+    grid-column: span 2;
 }
 
 #container #result button:hover {
@@ -320,4 +323,18 @@ body {
     height: 100%;
     width: fit-content;
     float: right;
+}
+
+#save {
+    border-radius: 1.1em 0.3em;
+    height: 3.1em;
+    width: 13.5em;
+    border: none;
+    outline: none;
+    font-size: 1.2em;
+    padding: 0 1em;
+}
+
+#save:focus {
+    border: 2px solid #d06023;
 }
