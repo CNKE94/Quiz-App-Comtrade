@@ -102,6 +102,50 @@ function podaciJson() {
         
             total_correct.textContent = `${correct = 0} od ${question.length} pitanja`;
         });
+        
+        choice_que.forEach((choices, choiceNo) => {
+            choices.addEventListener("click", () => {
+                elementClicked = true;
+
+                let correct1;
+                let incorrect;
+                correct1 = `<img src="css/images/correct.png" class="correct">`;
+                incorrect = `<img src="css/images/incorrect.png" class="correct">`;
+
+                loadData(correct1, incorrect);
+
+                choices.classList.add("active");
+                if (choiceNo === question[currentQuiz].correct) {
+                    correct++;
+                    if (correct > 6) {
+                        trophy.src = "css/images/trophy.png";
+                        trophy.classList.add("trophyGold");
+                        result_message.textContent = "ČESTITAMO! 🎆🎆🎆";
+                    } else {
+                        trophy.src = "css/images/second.png";
+                        trophy.classList.add("trophySilver");
+                        result_message.textContent = "MOŽE TO I BOLJE 😩😩😩";
+                    }
+                } else {
+                    correct += 0;
+                }
+                clearInterval(interval);
+        
+                for (i = 0; i <= 3; i++) {
+                    choice_que[i].classList.add("disabled");
+                }
+            })
+        });
+        
+        quit.addEventListener("click", () => {
+            window.location.href='/index.html';
+        });
+        
+        startAgain.addEventListener("click", () => {
+            guide.style.display = "none";
+            result.style.display = "none";
+            location.reload();
+        });
       }
       if (this.status >= 400) {
         let greska = new Error("Request failed:" + xHr.statusText);
