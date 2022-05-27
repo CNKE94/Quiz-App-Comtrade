@@ -137,6 +137,35 @@ function podaciJson() {
             })
         });
         
+        next_question.addEventListener("click", function() {
+            if(elementClicked) {
+                elementClicked = false;
+                if (currentQuiz !== question.length - 1) {
+                    currentQuiz++;
+                    choice_que.forEach(removeActive => {
+                        removeActive.classList.remove("active");
+                    });
+    
+                    loadData();
+            
+                    total_correct.style.display = "block";
+                    total_correct.innerHTML = `${correct} od ${question.length} pitanja`;
+                    clearInterval(interval);
+                    interval = setInterval(countDown, 1000);
+                } else {
+                    currentQuiz = 0;
+                    clearInterval(interval);
+                    quiz.style.display = "none";
+                    points.innerHTML = `Pogodili ste ${correct} od ${question.length} pitanja`;
+                    result.style.display = "grid";
+                }
+                for (i = 0; i <= 3; i++) {
+                    choice_que[i].classList.remove("disabled");
+                }
+
+            }
+        });
+        
         quit.addEventListener("click", () => {
             window.location.href='/index.html';
         });
