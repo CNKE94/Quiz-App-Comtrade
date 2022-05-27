@@ -28,14 +28,14 @@ let trophy = document.getElementById("trophy");
 let result_message = document.getElementById("result_message");
 
 function podaciJson() {
-  let xHr = new XMLHttpRequest();
-  let random = Math.ceil(Math.random() * 3);
-  
-  xHr.onreadystatechange = function () {
+    let xHr = new XMLHttpRequest();
+    let random = Math.ceil(Math.random() * 3);
+
+    xHr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         let question = JSON.parse(this.responseText);
         console.log(question);
-        
+
         let currentQuiz = 0;
         let correct = 0;
         let timer = 0;
@@ -51,7 +51,7 @@ function podaciJson() {
         exit.addEventListener("click", () => {
             window.location.href='/index.html';
         });
-        
+
         let countDown = () => {
             if (timer === 15) {
                 elementClicked = true;
@@ -61,9 +61,9 @@ function podaciJson() {
                 timer++;
                 time.innerText = timer;
             }
-          }
+        }
 
-          function loadData(answer, answer1) {
+        function loadData(answer, answer1) {
             let currentQuizData = question[currentQuiz];
             questionNo.textContent = currentQuizData.questionNum + '.';
             questionText.textContent = currentQuizData.question;
@@ -84,11 +84,11 @@ function podaciJson() {
             option4.innerHTML = `${currentQuizData.d} ${niz.indexOf(niz[3]) === question[currentQuiz].correct ? answer : answer1}`;
 
             timer = 0;
-          }
+        }
         
-          loadData();
+        loadData();
         
-          continueBtn.addEventListener("click", () => {
+        continueBtn.addEventListener("click", () => {
             document.body.style.backgroundImage = "url('css/images/bgd_history.jpg')";
             quiz.style.display = "block";
             guide.style.display = "none";
@@ -101,11 +101,13 @@ function podaciJson() {
             })
         
             total_correct.textContent = `${correct = 0} od ${question.length} pitanja`;
-           });
-        
-           choice_que.forEach((choices, choiceNo) => {
+        });
+
+        choice_que.forEach((choices, choiceNo) => {
+            console.log(choices, choiceNo);
             choices.addEventListener("click", () => {
                 elementClicked = true;
+                choices.classList.add("active");
 
                 let correct1;
                 let incorrect;
@@ -114,7 +116,6 @@ function podaciJson() {
 
                 loadData(correct1, incorrect);
 
-                choices.classList.add("active");
                 if (choiceNo === question[currentQuiz].correct) {
                     correct++;
                     if (correct > 6) {
@@ -134,25 +135,54 @@ function podaciJson() {
                 for (i = 0; i <= 3; i++) {
                     choice_que[i].classList.add("disabled");
                 }
-              })
-            });
-        
-          quit.addEventListener("click", () => {
-              window.location.href='/index.html';
-          });
+            })
+        });
 
-          startAgain.addEventListener("click", () => {
-              guide.style.display = "none";
-              result.style.display = "none";
-              location.reload();
-          });
+        next_question.addEventListener("click", function() {
+            if(elementClicked) {
+                elementClicked = false;
+                if (currentQuiz !== question.length - 1) {
+                    currentQuiz++;
+                    choice_que.forEach(removeActive => {
+                        removeActive.classList.remove("active");
+                    });
+    
+                    loadData();
+            
+                    total_correct.style.display = "block";
+                    total_correct.innerHTML = `${correct} od ${question.length} pitanja`;
+                    clearInterval(interval);
+                    interval = setInterval(countDown, 1000);
+                } else {
+                    currentQuiz = 0;
+                    clearInterval(interval);
+                    quiz.style.display = "none";
+                    points.innerHTML = `Pogodili ste ${correct} od ${question.length} pitanja`;
+                    result.style.display = "grid";
+                }
+                for (i = 0; i <= 3; i++) {
+                    choice_que[i].classList.remove("disabled");
+                }
+
+            }
+        });
+
+        quit.addEventListener("click", () => {
+            window.location.href='/index.html';
+        });
+        
+        startAgain.addEventListener("click", () => {
+            guide.style.display = "none";
+            result.style.display = "none";
+            location.reload();
+        });
       }
       if (this.status >= 400) {
         let greska = new Error("Request failed:" + xHr.statusText);
         console.log(greska);
       }
-  }
-  xHr.open("GET", "json/istorija.json");
-  xHr.send();
+    }
+    xHr.open("GET", `json/istorija/istorija${random}.json`);
+    xHr.send();
 }
 podaciJson();
