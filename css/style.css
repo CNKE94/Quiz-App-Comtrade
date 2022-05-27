@@ -6,7 +6,6 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Exo', sans-serif;
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
@@ -19,12 +18,14 @@
     height: 100vh;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 93% 6%;
     gap: 2rem;
     padding: 2rem;
     background-color: rgb(22, 170, 170);
+    /* display: none; */
 }
 
-#general_culture {
+#wrapper #general_culture {
     background-image: url(images/general_culture.jpg);
     background-repeat: no-repeat;
     background-position: center;
@@ -37,20 +38,20 @@
     overflow: hidden;
 }
 
-#general_culture:hover {
+#wrapper #general_culture:hover {
     cursor: pointer;
     opacity: 0.9;
     transform: scale(1.05);
     box-shadow: 0 0 15px 15px rgb(82, 89, 149);
 }
 
-#general_culture:hover .text {
+#wrapper #general_culture:hover .text {
     animation: text 2s forwards;
     display: flex;
     position: absolute;
 }
 
-#history {
+#wrapper #history {
     background-image: url(images/history.jpg);
     background-repeat: no-repeat;
     background-position: center;
@@ -63,20 +64,20 @@
     overflow: hidden;
 }
 
-#history:hover {
+#wrapper #history:hover {
     cursor: pointer;
     opacity: 0.9;
     transform: scale(1.05);
     box-shadow: 0 0 15px 15px rgb(82, 89, 149);
 }
 
-#history:hover .text {
+#wrapper #history:hover .text {
     animation: text 2s forwards;
     display: flex;
     position: absolute;
 }
 
-#geography {
+#wrapper #geography {
     background-image: url(images/geography.jpg);
     background-repeat: no-repeat;
     background-position: center;
@@ -89,7 +90,7 @@
     overflow: hidden;
 }
 
-#geography:hover {
+#wrapper #geography:hover {
     cursor: pointer;
     opacity: 0.9;
     border-radius: 2rem;
@@ -97,8 +98,89 @@
     box-shadow: 0 0 15px 15px rgb(82, 89, 149);
 }
 
-#geography:hover .text {
+#wrapper #geography:hover .text {
     animation: text 2s forwards;
     display: flex;
     position: absolute;
+}
+
+@keyframes text {
+    0% {
+        top: -10%;
+    }
+    100% {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.text {
+    color: aqua;
+    font-weight: 900;
+    font-size: 2em;
+    display: none;
+}
+
+#wrapper #highScoresBtn {
+    grid-column: span 3;
+    border-radius: 1rem;
+    border: none;
+    color: white;
+    background-color: tomato;
+    font-size: 1.5em;
+    font-weight: 800;
+}
+
+#wrapper #highScoresBtn:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+/* Highscores page */
+
+#highScores {
+    width: 100%;
+    height: 100vh;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 93% 6%;
+    background-color: rgb(22, 170, 170);
+    position: relative;
+    padding-top: 1em;
+    display: none;
+}
+
+#highScores #generalCultureScores, #historyScores, #geographyScores {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid white;
+    margin-bottom: 1em;
+}
+
+.titleScores {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid white;
+    width: 100%;
+    text-align: center;
+}
+
+#highScores #geographyScores {
+    border-right: none;
+}
+
+#highScores #homePage {
+    width: 95%;
+    margin: 0 auto;
+    grid-column: span 3;
+    border-radius: 1rem;
+    border: none;
+    color: white;
+    background-color: tomato;
+    font-size: 1.5em;
+    font-weight: 800;
+}
+
+#highScores #homePage:hover {
+    opacity: 0.8;
+    cursor: pointer;
 }
