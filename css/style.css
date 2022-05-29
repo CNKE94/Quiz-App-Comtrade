@@ -157,8 +157,10 @@
 }
 
 .titleScores {
+    margin-top: 1em;
     padding-top: 1em;
     padding-bottom: 1em;
+    height: 15vh;
     border-bottom: 1px solid white;
     width: 100%;
     text-align: center;
@@ -183,4 +185,16 @@
 #highScores #homePage:hover {
     opacity: 0.8;
     cursor: pointer;
+}
+
+#scores {
+    padding: 1em;
+}
+
+#scores ul li {
+    margin-bottom: 1em;
+}
+
+#scores ul li span {
+    float: right;
 }
