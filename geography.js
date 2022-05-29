@@ -27,15 +27,27 @@ let choice_que = document.querySelectorAll(".choice_que");
 let trophy = document.getElementById("trophy");
 let result_message = document.getElementById("result_message");
 
+let username = document.getElementById('username');
+let saveScore = document.getElementById('saveName');
+let inputCheck = document.getElementById(`inputCheck`);
+
+let finishTime = 0;
+
+function sumTime(time) {
+    var minutes = Math.floor((time/1000/60));
+    var seconds = Math.floor((time/1000) % 60);
+    return `${minutes < 10 ? ("0" + minutes) : minutes}:${seconds < 10 ? ("0" + seconds) : seconds}`;
+}
+
 function podaciJson() {
-  let xHr = new XMLHttpRequest();
-  let random = Math.ceil(Math.random() * 3);
-  
-  xHr.onreadystatechange = function () {
+    let xHr = new XMLHttpRequest();
+    let random = Math.ceil(Math.random() * 3);
+
+    xHr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         let question = JSON.parse(this.responseText);
-        console.log(question);
-        
+        // console.log(question);
+
         let currentQuiz = 0;
         let correct = 0;
         let timer = 0;
@@ -51,12 +63,13 @@ function podaciJson() {
         exit.addEventListener("click", () => {
             window.location.href='/index.html';
         });
-        
+
         let countDown = () => {
             if (timer === 15) {
                 elementClicked = true;
                 clearInterval(interval);
                 next_question.click();
+                finishTime += 15;
             } else {
                 timer++;
                 time.innerText = timer;
@@ -89,7 +102,7 @@ function podaciJson() {
         loadData();
         
         continueBtn.addEventListener("click", () => {
-            document.body.style.backgroundImage = "url('css/images/bgd_history.jpg')";
+            document.body.style.backgroundImage = "url('css/images/bgd_geography.jpg')";
             quiz.style.display = "block";
             guide.style.display = "none";
 
@@ -102,7 +115,7 @@ function podaciJson() {
         
             total_correct.textContent = `${correct = 0} od ${question.length} pitanja`;
         });
-        
+
         choice_que.forEach((choices, choiceNo) => {
             choices.addEventListener("click", () => {
                 elementClicked = true;
@@ -113,6 +126,7 @@ function podaciJson() {
                 incorrect = `<img src="css/images/incorrect.png" class="correct">`;
 
                 loadData(correct1, incorrect);
+                finishTime += parseInt(time.innerText);
 
                 choices.classList.add("active");
                 if (choiceNo === question[currentQuiz].correct) {
@@ -130,13 +144,19 @@ function podaciJson() {
                     correct += 0;
                 }
                 clearInterval(interval);
+
+                if(correct === 0) {
+                    trophy.src = "css/images/second.png";
+                    trophy.classList.add("trophySilver");
+                    result_message.textContent = "MOŽE TO I BOLJE 😩😩😩";
+                }
         
                 for (i = 0; i <= 3; i++) {
                     choice_que[i].classList.add("disabled");
                 }
             })
         });
-        
+
         next_question.addEventListener("click", function() {
             if(elementClicked) {
                 elementClicked = false;
@@ -152,12 +172,15 @@ function podaciJson() {
                     total_correct.innerHTML = `${correct} od ${question.length} pitanja`;
                     clearInterval(interval);
                     interval = setInterval(countDown, 1000);
+                    time.innerText = 0;
                 } else {
                     currentQuiz = 0;
                     clearInterval(interval);
                     quiz.style.display = "none";
-                    points.innerHTML = `Pogodili ste ${correct} od ${question.length} pitanja`;
+                    let finishTimeMS = finishTime * 1000;
+                    points.innerHTML = `Pogodili ste ${correct} od ${question.length} pitanja za vreme ${sumTime(finishTimeMS)}`;
                     result.style.display = "grid";
+                    localStorage.setItem(`thisScoreG`, correct);
                 }
                 for (i = 0; i <= 3; i++) {
                     choice_que[i].classList.remove("disabled");
@@ -165,7 +188,7 @@ function podaciJson() {
 
             }
         });
-        
+
         quit.addEventListener("click", () => {
             window.location.href='/index.html';
         });
@@ -175,13 +198,57 @@ function podaciJson() {
             result.style.display = "none";
             location.reload();
         });
+
+        // Local Storage
+
+        let highScores = JSON.parse(localStorage.getItem('highScoresG')) || [];
+        // let thisScore = localStorage.getItem(`thisScore`);
+        let button = false;
+        console.log(highScores);
+        let patternName = /(^[A-Z][a-z]{0,8}[0-9]{0,4})/;
+
+        function saveHighScore() {
+            button = true;
+            saveScore.disabled = button;
+            username.disabled = button;
+            let finishTimeMS = finishTime * 1000;
+        
+            const score = {
+                score: correct,
+                name: username.value,
+                time: finishTime,
+                convertTime: sumTime(finishTimeMS),
+            };
+            console.log(score);
+
+            highScores.push(score);
+            highScores.sort((a, b) => b.score - a.score || a.time - b.time);
+            highScores.splice(7);
+        
+            localStorage.setItem('highScoresG', JSON.stringify(highScores));
+            alert(`USPŠNO STE SAČUVALI VAŠ SKOR! ! !`);
+            username.value = ``;
+        };
+
+        saveScore.addEventListener("click", function() {
+            if(username.value == '') {
+                inputCheck.innerHTML = `Polje je prazno`;
+            } else {
+                if(!patternName.test(username.value)) {
+                    inputCheck.innerHTML = `Neispravan format imena`;
+                } else {
+                    saveHighScore();
+                    inputCheck.innerHTML = ``;
+                }
+            }
+        });
       }
       if (this.status >= 400) {
         let greska = new Error("Request failed:" + xHr.statusText);
         console.log(greska);
       }
-  }
-  xHr.open("GET", "json/geografija.json");
-  xHr.send();
+    }
+    xHr.open("GET", `json/geografija/geografija${random}.json`);
+    xHr.send();
 }
 podaciJson();
