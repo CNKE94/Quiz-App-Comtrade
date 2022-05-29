@@ -27,6 +27,17 @@ let choice_que = document.querySelectorAll(".choice_que");
 let trophy = document.getElementById("trophy");
 let result_message = document.getElementById("result_message");
 
+let username = document.getElementById('username');
+let saveScore = document.getElementById('saveName');
+
+let finishTime = 0;
+
+function sumTime(time) {
+    var minutes = Math.floor((time/1000/60));
+    var seconds = Math.floor((time/1000) % 60);
+    return `${minutes < 10 ? ("0" + minutes) : minutes}:${seconds < 10 ? ("0" + seconds) : seconds}`;
+}
+
 function podaciJson() {
     let xHr = new XMLHttpRequest();
     let random = Math.ceil(Math.random() * 3);
@@ -115,6 +126,7 @@ function podaciJson() {
                 incorrect = `<img src="css/images/incorrect.png" class="correct">`;
 
                 loadData(correct1, incorrect);
+                finishTime += parseInt(time.innerText);
 
                 if (choiceNo === question[currentQuiz].correct) {
                     correct++;
@@ -131,6 +143,12 @@ function podaciJson() {
                     correct += 0;
                 }
                 clearInterval(interval);
+
+                if(correct === 0) {
+                    trophy.src = "css/images/second.png";
+                    trophy.classList.add("trophySilver");
+                    result_message.textContent = "MOŽE TO I BOLJE 😩😩😩";
+                }
         
                 for (i = 0; i <= 3; i++) {
                     choice_que[i].classList.add("disabled");
@@ -153,12 +171,15 @@ function podaciJson() {
                     total_correct.innerHTML = `${correct} od ${question.length} pitanja`;
                     clearInterval(interval);
                     interval = setInterval(countDown, 1000);
+                    time.innerText = 0;
                 } else {
                     currentQuiz = 0;
                     clearInterval(interval);
                     quiz.style.display = "none";
-                    points.innerHTML = `Pogodili ste ${correct} od ${question.length} pitanja`;
+                    let finishTimeMS = finishTime * 1000;
+                    points.innerHTML = `Pogodili ste ${correct} od ${question.length} pitanja za ${sumTime(finishTimeMS)}`;
                     result.style.display = "grid";
+                    localStorage.setItem(`thisScoreH`, correct);
                 }
                 for (i = 0; i <= 3; i++) {
                     choice_que[i].classList.remove("disabled");
@@ -176,6 +197,42 @@ function podaciJson() {
             result.style.display = "none";
             location.reload();
         });
+
+        // Local Storage
+
+        let highScores = JSON.parse(localStorage.getItem('highScoresH')) || [];
+        // let thisScore = localStorage.getItem(`thisScore`);
+        let button = false;
+        console.log(highScores);
+
+        username.addEventListener('keyup', () => {
+            saveScore.disabled = !username.value;
+        });
+
+        function saveHighScore() {
+            button = true;
+            saveScore.disabled = button;
+            username.disabled = button;
+            let finishTimeMS = finishTime * 1000;
+        
+            const score = {
+                score: correct,
+                name: username.value,
+                time: finishTime,
+                convertTime: sumTime(finishTimeMS),
+            };
+            console.log(score);
+
+            highScores.push(score);
+            highScores.sort((a, b) => b.score - a.score || b.time - a.time);
+            highScores.splice(7);
+        
+            localStorage.setItem('highScoresH', JSON.stringify(highScores));
+            alert(`USPŠNO STE SAČUVALI VAŠ SKOR! ! !`);
+            username.value = ``;
+        };
+
+        saveScore.addEventListener("click", saveHighScore);
       }
       if (this.status >= 400) {
         let greska = new Error("Request failed:" + xHr.statusText);
