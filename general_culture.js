@@ -29,6 +29,7 @@ let result_message = document.getElementById("result_message");
 
 let username = document.getElementById('username');
 let saveScore = document.getElementById('saveName');
+let inputCheck = document.getElementById(`inputCheck`);
 
 let finishTime = 0;
 
@@ -204,10 +205,7 @@ function podaciJson() {
         // let thisScore = localStorage.getItem(`thisScore`);
         let button = false;
         console.log(highScores);
-
-        username.addEventListener('keyup', () => {
-            saveScore.disabled = !username.value;
-        });
+        let patternName = /(^[A-Z][a-z]{0,8}[0-9]{0,4})/;
 
         function saveHighScore() {
             button = true;
@@ -232,7 +230,27 @@ function podaciJson() {
             username.value = ``;
         };
 
-        saveScore.addEventListener("click", saveHighScore);
+        username.addEventListener(`keypress`, function(e) {
+            let max_chars = 13;
+            if (username.value.length >= max_chars) {
+                username.value = username.value.slice(0, e.target.max_chars);
+                e.preventDefault();
+                return;
+            }
+        });
+
+        saveScore.addEventListener("click", function() {
+            if(username.value == '') {
+                inputCheck.innerHTML = `Polje je prazno`;
+            } else {
+                if(!patternName.test(username.value)) {
+                    inputCheck.innerHTML = `Neispravan format imena`;
+                } else {
+                    saveHighScore();
+                    inputCheck.innerHTML = ``;
+                }
+            }
+        });
       }
       if (this.status >= 400) {
         let greska = new Error("Request failed:" + xHr.statusText);
