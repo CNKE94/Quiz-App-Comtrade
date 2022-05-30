@@ -230,6 +230,15 @@ function podaciJson() {
             username.value = ``;
         };
 
+        username.addEventListener(`keypress`, function(e) {
+            let max_chars = 13;
+            if (username.value.length >= max_chars) {
+                username.value = username.value.slice(0, e.target.max_chars);
+                e.preventDefault();
+                return;
+            }
+        });
+
         saveScore.addEventListener("click", function() {
             if(username.value == '') {
                 inputCheck.innerHTML = `Polje je prazno`;
