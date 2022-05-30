@@ -325,7 +325,7 @@ body {
     float: right;
 }
 
-#save {
+#container #result #username {
     border-radius: 1.1em 0.3em;
     height: 3.1em;
     width: 13.5em;
@@ -335,6 +335,13 @@ body {
     padding: 0 1em;
 }
 
-#save:focus {
-    border: 2px solid #d06023;
+#container #result #username:focus {
+    border: 2px solid #ff5235;
+}
+
+#container #result #inputCheck {
+    height: 2em;
+    color: red;
+    grid-column: span 2;
+    font-weight: 800;
 }
