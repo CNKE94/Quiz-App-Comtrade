@@ -19,6 +19,12 @@ const password = document.getElementById(`password`);
 const submit = document.getElementById(`submit`);
 const incorrectPass = document.getElementById(`incorrectPass`);
 
+const allCheck = document.getElementById(`allCheck`);
+const cultureCheck = document.getElementById(`cultureCheck`);
+const historyCheck = document.getElementById(`historyCheck`);
+const geographyCheck = document.getElementById(`geographyCheck`);
+const quizCheck = document.getElementsByClassName(`quizCheck`);
+
 let highScoresC = JSON.parse(localStorage.getItem('highScoresC')) || [];
 let highScoresH = JSON.parse(localStorage.getItem('highScoresH')) || [];
 let highScoresG = JSON.parse(localStorage.getItem('highScoresG')) || [];
@@ -61,57 +67,123 @@ highScoresG.map((scores) => {
 let button = false;
 const pass = 1010;
 
-deleteScores.addEventListener(`click`, function() {
-    if (localStorage.length > 0) {
-        button = true;
-        homePage.disabled = button;
-        deleteScores.disabled = button;
-        popup.style.display = 'flex';
-        generalCultureScores.classList.add("blur");
-        historyScores.classList.add("blur");
-        geographyScores.classList.add("blur");
-        buttons.classList.add("blur");
-    } else {
-        alert(`REZULTATI SU VEĆ PRAZNI`);
-    }
-});
-
-submit.addEventListener(`click` , function() {
-    if (password.value == ``) {
-        incorrectPass.innerHTML = `Prazno polje`;
-    } else {
-        if(password.value == pass) {
-            localStorage.clear();
-            highScoresListCulture.innerHTML = ``;
-            highScoresListHistory.innerHTML = ``;
-            highScoresListGeography.innerHTML = ``;
-    
-            popup.style.display = 'none';
-    
-            button = false;
-            homePage.disabled = button;
-            deleteScores.disabled = button;
-    
-            generalCultureScores.classList.remove("blur");
-            historyScores.classList.remove("blur");
-            geographyScores.classList.remove("blur");
-            buttons.classList.remove("blur");
-        } else {
-            incorrectPass.innerHTML = `Netačna šifra`;
-        }
-    }
-});
-
-closePopup.addEventListener(`click`, function() {
+function removePopup() {
     popup.style.display = 'none';
+
     button = false;
     homePage.disabled = button;
     deleteScores.disabled = button;
+    homePage.classList.remove("disabledButton");
+    deleteScores.classList.remove("disabledButton");
 
     generalCultureScores.classList.remove("blur");
     historyScores.classList.remove("blur");
     geographyScores.classList.remove("blur");
     buttons.classList.remove("blur");
+};
+
+deleteScores.addEventListener(`click`, function() {
+    if (localStorage.length > 0) {
+        button = true;
+        homePage.disabled = button;
+        deleteScores.disabled = button;
+        homePage.classList.add("disabledButton");
+        deleteScores.classList.add("disabledButton");
+
+        popup.style.display = 'flex';
+        generalCultureScores.classList.add("blur");
+        historyScores.classList.add("blur");
+        geographyScores.classList.add("blur");
+        buttons.classList.add("blur");
+
+        password.focus();
+
+        allCheck.checked = false;
+        cultureCheck.checked = false;
+        historyCheck.checked = false;
+        geographyCheck.checked = false;
+    } else {
+        alert(`REZULTATI SU VEĆ PRAZNI`);
+    }
+});
+
+password.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      submit.click();
+    }
+});
+
+allCheck.addEventListener(`click`, function() {
+    cultureCheck.checked = false;
+    historyCheck.checked = false;
+    geographyCheck.checked = false;
+});
+
+for (let i = 0; i < quizCheck.length; i++) {
+    quizCheck[i].addEventListener(`click`, function() {
+        if(quizCheck[i].checked) {
+            allCheck.checked = false;
+        }
+    });
+};
+
+submit.addEventListener(`click` , function() {
+    if (password.value == ``) {
+        incorrectPass.innerHTML = `Prazno polje`;
+        password.focus();
+    } else {
+        if(password.value == pass) {
+            if(!allCheck.checked && !cultureCheck.checked && !historyCheck.checked && !geographyCheck.checked) {
+                incorrectPass.innerHTML = `Nije ništa čekirano`;
+            }
+            if(allCheck.checked) {
+                localStorage.clear();
+                highScoresListCulture.innerHTML = ``;
+                highScoresListHistory.innerHTML = ``;
+                highScoresListGeography.innerHTML = ``;
+        
+                removePopup();
+            }
+            if (cultureCheck.checked) {
+                if(localStorage.getItem(`highScoresC`) !== null) {
+                    localStorage.removeItem(`highScoresC`);
+                    highScoresListCulture.innerHTML = ``;
+    
+                    removePopup();
+                } else {
+                    incorrectPass.innerHTML = `Skor je već prazan`;
+                }
+            }
+            if (historyCheck.checked) {
+                if(localStorage.getItem(`highScoresH`) !== null) {
+                    localStorage.removeItem(`highScoresH`);
+                    highScoresListHistory.innerHTML = ``;
+    
+                    removePopup();
+                } else {
+                    incorrectPass.innerHTML = `Skor je već prazan`;
+                }
+            }
+            if (geographyCheck.checked) {
+                if(localStorage.getItem(`highScoresG`) !== null) {
+                    localStorage.removeItem(`highScoresG`);
+                    highScoresListGeography.innerHTML = ``;
+    
+                    removePopup();
+                } else {
+                    incorrectPass.innerHTML = `Skor je već prazan`;
+                }
+            }
+        } else {
+            incorrectPass.innerHTML = `Netačna šifra`;
+            password.focus();
+        }
+    }
+});
+
+closePopup.addEventListener(`click`, function() {
+    removePopup();
 
     incorrectPass.innerHTML = ``;
     password.value = ``;
@@ -123,5 +195,14 @@ password.addEventListener(`keypress`, function(e) {
         password.value = password.value.slice(0, e.target.max_chars);
         e.preventDefault();
         return;
+    }
+});
+
+document.addEventListener('mouseup', function(e) {
+    if (!popup.contains(e.target)) {
+        removePopup();
+
+        incorrectPass.innerHTML = ``;
+        password.value = ``;
     }
 });
