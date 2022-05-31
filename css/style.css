@@ -206,17 +206,17 @@
 
 #highScores #popup {
     position: relative;
-    padding: 2.5em;
+    padding: 2em;
     position: absolute;
     background-color: white;
-    width: 25em;
-    height: 15em;
+    width: 27em;
+    height: 18em;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: none;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     border-radius: 2.1em 0.4em;
 }
@@ -245,7 +245,7 @@
 }
 
 #highScores #popup #submit {
-    padding: 0.3em;
+    padding: 0.4em;
     background-color: white;
     border: 1px solid #b0c4d8;
     border-radius: 0.5em;
@@ -257,6 +257,13 @@
     cursor: pointer;
 }
 
+#highScores #popup #checkbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
 #highScores #popup #incorrectPass {
     color: red;
     font-weight: 800;
@@ -265,4 +272,8 @@
 
 .blur {
     filter: blur(0.2em);
+}
+
+.disabledButton {
+    pointer-events: none;
 }
