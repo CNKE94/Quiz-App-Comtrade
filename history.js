@@ -191,20 +191,21 @@ function podaciJson() {
 
         quit.addEventListener("click", () => {
             window.location.href='/index.html';
+            localStorage.removeItem(`thisScoreH`);
         });
         
         startAgain.addEventListener("click", () => {
             guide.style.display = "none";
             result.style.display = "none";
             location.reload();
+            localStorage.removeItem(`thisScoreH`);
         });
 
         // Local Storage
 
         let highScores = JSON.parse(localStorage.getItem('highScoresH')) || [];
-        // let thisScore = localStorage.getItem(`thisScore`);
+        
         let button = false;
-        console.log(highScores);
         let patternName = /(^[A-Z][a-z]{0,8}[0-9]{0,4})/;
 
         function saveHighScore() {
@@ -248,6 +249,7 @@ function podaciJson() {
                 } else {
                     saveHighScore();
                     inputCheck.innerHTML = ``;
+                    localStorage.removeItem(`thisScoreH`);
                 }
             }
         });
