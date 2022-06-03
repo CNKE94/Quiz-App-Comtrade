@@ -25,47 +25,66 @@ const historyCheck = document.getElementById(`historyCheck`);
 const geographyCheck = document.getElementById(`geographyCheck`);
 const quizCheck = document.getElementsByClassName(`quizCheck`);
 
+const filterCulture = document.getElementById(`filterCulture`);
+const filterHistory = document.getElementById(`filterHistory`);
+const filterGeography = document.getElementById(`filterGeography`);
+
+const checkboxFilterC = document.getElementById(`checkboxFilterC`);
+const checkboxFilterH = document.getElementById(`checkboxFilterH`);
+const checkboxFilterG = document.getElementById(`checkboxFilterG`);
+
+// Getting data from LocalStorage
+
 let highScoresC = JSON.parse(localStorage.getItem('highScoresC')) || [];
 let highScoresH = JSON.parse(localStorage.getItem('highScoresH')) || [];
 let highScoresG = JSON.parse(localStorage.getItem('highScoresG')) || [];
+
+// Button for showing highscores
 
 highScoresBtn.addEventListener(`click`, function() {
     wrapper.style.display = 'none';
     highScores.style.display = 'grid';
 });
 
+// Button for going back to home page
+
 homePage.addEventListener(`click`, function() {
     wrapper.style.display = 'grid';
     highScores.style.display = 'none';
+    location.reload();
 });
 
 let counterC = 0;
 let counterH = 0;
 let counterG = 0;
 
+// Map for each scores which are in localStorage and display them on scores table
+
 highScoresC.map((scores) => {
-    counterC++
+    counterC++;
     let score = ``;
     score += `<li><strong>${counterC}. ${scores.name}</strong><span>${scores.score} ${scores.convertTime}</span></li>`;
     highScoresListCulture.innerHTML += score;
 });
 
 highScoresH.map((scores) => {
-    counterH++
+    counterH++;
     let score = ``;
     score += `<li><strong>${counterH}. ${scores.name}</strong><span>${scores.score} ${scores.convertTime}</span></li>`;
     highScoresListHistory.innerHTML += score;
 });
 
 highScoresG.map((scores) => {
-    counterG++
+    counterG++;
     let score = ``;
     score += `<li><strong>${counterG}. ${scores.name}</strong><span>${scores.score} ${scores.convertTime}</span></li>`;
     highScoresListGeography.innerHTML += score;
 });
 
 let button = false;
-const pass = 1010;
+const pass = 1010; // password for deleting the scores
+
+// Function for removing popup
 
 function removePopup() {
     popup.style.display = 'none';
@@ -80,7 +99,13 @@ function removePopup() {
     historyScores.classList.remove("blur");
     geographyScores.classList.remove("blur");
     buttons.classList.remove("blur");
+
+    checkboxFilterC.classList.remove(`disabledButton`);
+    checkboxFilterH.classList.remove(`disabledButton`);
+    checkboxFilterG.classList.remove(`disabledButton`);
 };
+
+// After click popup is getting fired only if there are any scores in local storage
 
 deleteScores.addEventListener(`click`, function() {
     if (localStorage.length > 0) {
@@ -102,10 +127,16 @@ deleteScores.addEventListener(`click`, function() {
         cultureCheck.checked = false;
         historyCheck.checked = false;
         geographyCheck.checked = false;
+
+        checkboxFilterC.classList.add(`disabledButton`);
+        checkboxFilterH.classList.add(`disabledButton`);
+        checkboxFilterG.classList.add(`disabledButton`);
     } else {
         alert(`REZULTATI SU VEĆ PRAZNI`);
     }
 });
+
+// Submit password after click on 'Enter'
 
 password.addEventListener("keypress", function(e) {
     if (e.key === "Enter") {
@@ -114,11 +145,15 @@ password.addEventListener("keypress", function(e) {
     }
 });
 
+// If this checkbox is checked all other checkboxes are set to false
+
 allCheck.addEventListener(`click`, function() {
     cultureCheck.checked = false;
     historyCheck.checked = false;
     geographyCheck.checked = false;
 });
+
+// If any of the rest checkboxes are checked then uncheck checkbox allCheck
 
 for (let i = 0; i < quizCheck.length; i++) {
     quizCheck[i].addEventListener(`click`, function() {
@@ -127,6 +162,8 @@ for (let i = 0; i < quizCheck.length; i++) {
         }
     });
 };
+
+// After testing if pass is correct delete certain scores from Local Storage
 
 submit.addEventListener(`click` , function() {
     if (password.value == ``) {
@@ -142,6 +179,10 @@ submit.addEventListener(`click` , function() {
                 highScoresListCulture.innerHTML = ``;
                 highScoresListHistory.innerHTML = ``;
                 highScoresListGeography.innerHTML = ``;
+
+                checkboxFilterC.style.display = 'none';
+                checkboxFilterH.style.display = 'none';
+                checkboxFilterG.style.display = 'none';
         
                 removePopup();
             }
@@ -149,6 +190,7 @@ submit.addEventListener(`click` , function() {
                 if(localStorage.getItem(`highScoresC`) !== null) {
                     localStorage.removeItem(`highScoresC`);
                     highScoresListCulture.innerHTML = ``;
+                    checkboxFilterC.style.display = 'none';
     
                     removePopup();
                 } else {
@@ -159,6 +201,7 @@ submit.addEventListener(`click` , function() {
                 if(localStorage.getItem(`highScoresH`) !== null) {
                     localStorage.removeItem(`highScoresH`);
                     highScoresListHistory.innerHTML = ``;
+                    checkboxFilterH.style.display = 'none';
     
                     removePopup();
                 } else {
@@ -169,6 +212,7 @@ submit.addEventListener(`click` , function() {
                 if(localStorage.getItem(`highScoresG`) !== null) {
                     localStorage.removeItem(`highScoresG`);
                     highScoresListGeography.innerHTML = ``;
+                    checkboxFilterG.style.display = 'none';
     
                     removePopup();
                 } else {
@@ -182,12 +226,16 @@ submit.addEventListener(`click` , function() {
     }
 });
 
+// Button X to remove popup
+
 closePopup.addEventListener(`click`, function() {
     removePopup();
 
     incorrectPass.innerHTML = ``;
     password.value = ``;
 });
+
+// Password in popup set length to 4 characters
 
 password.addEventListener(`keypress`, function(e) {
     let max_chars = 4;
@@ -198,6 +246,8 @@ password.addEventListener(`keypress`, function(e) {
     }
 });
 
+// If user click outside the popup remove popup
+
 document.addEventListener('mouseup', function(e) {
     if (!popup.contains(e.target)) {
         removePopup();
@@ -206,3 +256,115 @@ document.addEventListener('mouseup', function(e) {
         password.value = ``;
     }
 });
+
+// Filter checkbox for scores above 6
+
+filterCulture.addEventListener(`click`, function() {
+    let highOverSeven = highScoresC.filter(checkOverSeven);
+    function checkOverSeven (number) {
+        return number.score > 6;
+    };
+    if (filterCulture.checked) {
+        highScoresListCulture.innerHTML = ``;
+        if(highOverSeven.length == 0) {
+            let message = ``;
+            message += `<li class="message">Nema rezultata pretrage</li>`;
+            highScoresListCulture.innerHTML += message;
+        } else {
+            let counterC = 0;
+            highOverSeven.map((scores) => {
+                counterC++;
+                let score = ``;
+                score += `<li><strong>${counterC}. ${scores.name}</strong><span>${scores.score} ${scores.convertTime}</span></li>`;
+                highScoresListCulture.innerHTML += score;
+            });
+        }
+    } else {
+        highScoresListCulture.innerHTML = ``;
+        let counterC = 0;
+        highScoresC.map((scores) => {
+            counterC++;
+            let score = ``;
+            score += `<li><strong>${counterC}. ${scores.name}</strong><span>${scores.score} ${scores.convertTime}</span></li>`;
+            highScoresListCulture.innerHTML += score;
+        });
+    }
+});
+
+filterHistory.addEventListener(`click`, function() {
+    let highOverSeven = highScoresH.filter(checkOverSeven);
+    function checkOverSeven (number) {
+        return number.score > 6;
+    };
+    if (filterHistory.checked) {
+        highScoresListHistory.innerHTML = ``;
+        if(highOverSeven.length == 0) {
+            let message = ``;
+            message += `<li class="message">Nema rezultata pretrage</li>`;
+            highScoresListHistory.innerHTML += message;
+        } else {
+            let counterH = 0;
+            highOverSeven.map((scores) => {
+                counterH++;
+                let score = ``;
+                score += `<li><strong>${counterH}. ${scores.name}</strong><span>${scores.score} ${scores.convertTime}</span></li>`;
+                highScoresListHistory.innerHTML += score;
+            });
+        }
+    } else {
+        highScoresListHistory.innerHTML = ``;
+        let counterH = 0;
+        highScoresH.map((scores) => {
+            counterH++;
+            let score = ``;
+            score += `<li><strong>${counterH}. ${scores.name}</strong><span>${scores.score} ${scores.convertTime}</span></li>`;
+            highScoresListHistory.innerHTML += score;
+        });
+    }
+});
+
+filterGeography.addEventListener(`click`, function() {
+    let highOverSeven = highScoresG.filter(checkOverSeven);
+    function checkOverSeven (number) {
+        return number.score > 6;
+    };
+    if (filterGeography.checked) {
+        highScoresListGeography.innerHTML = ``;
+        if(highOverSeven.length == 0) {
+            let message = ``;
+            message += `<li class="message">Nema rezultata pretrage</li>`;
+            highScoresListGeography.innerHTML += message;
+        } else {
+            let counterG = 0;
+            highOverSeven.map((scores) => {
+                counterG++;
+                let score = ``;
+                score += `<li><strong>${counterG}. ${scores.name}</strong><span>${scores.score} ${scores.convertTime}</span></li>`;
+                highScoresListGeography.innerHTML += score;
+            });
+        }
+    } else {
+        highScoresListGeography.innerHTML = ``;
+        let counterG = 0;
+        highScoresG.map((scores) => {
+            counterG++;
+            let score = ``;
+            score += `<li><strong>${counterG}. ${scores.name}</strong><span>${scores.score} ${scores.convertTime}</span></li>`;
+            highScoresListGeography.innerHTML += score;
+        });
+    }
+});
+
+// Checkbox filter set to display none if there is no scores for each field
+
+if(localStorage.getItem(`highScoresC`) == null) {
+    checkboxFilterC.style.display = 'none';
+};
+
+if(localStorage.getItem(`highScoresH`) == null) {
+    checkboxFilterH.style.display = 'none';
+};
+
+if(localStorage.getItem(`highScoresG`) == null) {
+    checkboxFilterG.style.display = 'none';
+};
