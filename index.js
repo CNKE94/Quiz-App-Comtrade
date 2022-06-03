@@ -33,6 +33,10 @@ const checkboxFilterC = document.getElementById(`checkboxFilterC`);
 const checkboxFilterH = document.getElementById(`checkboxFilterH`);
 const checkboxFilterG = document.getElementById(`checkboxFilterG`);
 
+const general_culture = document.getElementById(`general_culture`);
+const history1 = document.getElementById(`history`);
+const geography = document.getElementById(`geography`);
+
 // Getting data from LocalStorage
 
 let highScoresC = JSON.parse(localStorage.getItem('highScoresC')) || [];
@@ -367,4 +371,64 @@ if(localStorage.getItem(`highScoresH`) == null) {
 
 if(localStorage.getItem(`highScoresG`) == null) {
     checkboxFilterG.style.display = 'none';
+};
+
+// Responsive JS
+
+window.addEventListener(`load`, responsive);
+window.addEventListener(`resize`, responsive);
+
+function responsive() {
+    const width = window.innerWidth;
+    console.log(width);
+    if(width < 768) {
+        // Home page responsive
+        wrapper.style.gridTemplateColumns = `1fr`;
+        wrapper.style.gridTemplateRows = `29% 29% 29% 5%`;
+        wrapper.style.height = `140vh`;
+        general_culture.style.gridColumn = `span 3`;
+        history1.style.gridColumn = `span 3`;
+        geography.style.gridColumn = `span 3`;
+        
+    } else {
+        // Home page responsive
+        wrapper.style.gridTemplateColumns = `1fr 1fr 1fr`;
+        wrapper.style.gridTemplateRows = `93% 6%`;
+        general_culture.style.gridColumn = ``;
+        history1.style.gridColumn = ``;
+        geography.style.gridColumn = ``;
+        wrapper.style.height = `100vh`;
+    }
+
+    if (width < 700) {
+        // High Scores responsive
+        highScores.style.gridTemplateColumns = `1fr`;
+        highScores.style.gridTemplateRows = `32% 32% 32% 3%`;
+        highScores.style.height = `220vh`;
+
+        generalCultureScores.style.gridColumn = `span 3`;
+        generalCultureScores.style.borderBottom = `1px solid white`;
+        historyScores.style.gridColumn = `span 3`;
+        historyScores.style.borderBottom = `1px solid white`;
+        geographyScores.style.gridColumn = `span 3`;
+        geographyScores.style.borderBottom = `1px solid white`;
+
+        homePage.style.fontSize = '1em';
+        deleteScores.style.fontSize = '1em';
+    } else {
+        // High Scores responsive
+        highScores.style.gridTemplateColumns = ``;
+        highScores.style.gridTemplateRows = ``;
+        highScores.style.height = ``;
+
+        generalCultureScores.style.gridColumn = ``;
+        generalCultureScores.style.borderBottom = ``;
+        historyScores.style.gridColumn = ``;
+        historyScores.style.borderBottom = ``;
+        geographyScores.style.gridColumn = ``;
+        geographyScores.style.borderBottom = ``;
+
+        homePage.style.fontSize = '';
+        deleteScores.style.fontSize = '';
+    }
 };
