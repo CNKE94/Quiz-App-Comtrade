@@ -13,6 +13,8 @@
     scroll-behavior: smooth;
 }
 
+/* Home page style */
+
 #wrapper {
     width: 100%;
     height: 100vh;
@@ -154,6 +156,22 @@
     flex-direction: column;
     border-right: 1px solid white;
     margin-bottom: 1em;
+    position: relative;
+}
+
+.checkboxFilter {
+    position: absolute;
+    bottom: 1em;
+    text-align: center;
+    width: 100%;
+}
+
+.checkboxFilter input {
+    cursor: pointer;
+}
+
+.display {
+    display: none;
 }
 
 .titleScores {
@@ -203,6 +221,8 @@
 #scores ul li span {
     float: right;
 }
+
+/* Popup style */
 
 #highScores #popup {
     position: relative;
@@ -264,6 +284,10 @@
     width: 100%;
 }
 
+#highScores #popup #checkbox input {
+    cursor: pointer;
+}
+
 #highScores #popup #incorrectPass {
     color: red;
     font-weight: 800;
@@ -276,4 +300,10 @@
 
 .disabledButton {
     pointer-events: none;
+}
+
+.message {
+    color: red;
+    font-weight: 800;
+    height: 1.5em;
 }
