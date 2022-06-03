@@ -9,17 +9,32 @@
     <link rel="shortcut icon" href="css/images/icon.jpg" type="image/x-icon">
 </head>
 <body>
+    <!-- Main section -->
+
     <div id="wrapper">
         <a href="general_culture.html" id="general_culture"><p class="text">OPŠTA KULTURA</p></a>
         <a href="history.html" id="history"><p class="text">ISTORIJA</p></a>
         <a href="geography.html" id="geography"><p class="text">GEOGRAFIJA</p></a>
         <button id="highScoresBtn">NAJVIŠI REZULTATI</button>
     </div>
+
+    <!-- Highscores section -->
+
     <div id="highScores">
+
+        <!-- Highscores table section -->
+
         <div id="generalCultureScores" class="">
             <h2 class="titleScores">OPŠTA KULTURA REZULTATI</h2>
             <div id="scores">
                 <ul id="highScoresListCulture"></ul>
+            </div>
+            
+            <!-- Filter for scores above 6 -->
+
+            <div id="checkboxFilterC" class="checkboxFilter">
+                <label for="filterCulture">Prikaži rezultate preko 6</label>
+                <input type="checkbox" name="filter" id="filterCulture">
             </div>
         </div>
         <div id="historyScores" class="">
@@ -27,23 +42,43 @@
             <div id="scores">
                 <ul id="highScoresListHistory"></ul>
             </div>
+            
+            <!-- Filter for scores above 6 -->
+
+            <div id="checkboxFilterH" class="checkboxFilter">
+                <label for="filterHistory">Prikaži rezultate preko 6</label>
+                <input type="checkbox" name="filter" id="filterHistory">
+            </div>
         </div>
         <div id="geographyScores" class="">
             <h2 class="titleScores">GEOGRAFIJA REZULTATI</h2>
             <div id="scores">
                 <ul id="highScoresListGeography"></ul>
             </div>
+            
+            <!-- Filter for scores above 6 -->
+
+            <div id="checkboxFilterG" class="checkboxFilter">
+                <label for="filterGeography">Prikaži rezultate preko 6</label>
+                <input type="checkbox" name="filter" id="filterGeography">
+            </div>
         </div>
         <div id="buttons" class="">
             <button id="homePage" class="">NAZAD NA POČETNU</button>
             <button id="deleteScores" class="">OBRIŠI REZULTATE</button>
         </div>
+
+        <!-- Popup section -->
+
         <div id="popup">
             <button id="closePopup">X</button>
             <h2>Unesite lozinku</h2>
             <label for="password">Lozinka:</label>
             <input type="password" id="password" placeholder="4 cifre">
             <button id="submit">POTVRDI</button>
+
+            <!-- Checkbox for what to delete -->
+            
             <div id="checkbox">
                 <label for="allCheck">Sve:</label><input type="checkbox" name="allCheck" id="allCheck">
                 <label for="cultureCheck">Opšta kultura:</label><input type="checkbox" name="cultureCheck" id="cultureCheck" class="quizCheck">
