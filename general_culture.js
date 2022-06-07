@@ -212,6 +212,7 @@ function podaciJson() {
             button = true;
             saveScore.disabled = button;
             username.disabled = button;
+            saveScore.style.pointerEvents = `none`;
             let finishTimeMS = finishTime * 1000;
         
             const score = {
@@ -253,6 +254,26 @@ function podaciJson() {
                 }
             }
         });
+
+        // Responsive JS
+
+        window.addEventListener(`load`, responsive);
+        window.addEventListener(`resize`, responsive);
+
+        function responsive() {
+            const width = window.innerWidth;
+            if(width < 650) {
+                start.style.fontSize = `1.1em`;
+                guide.style.fontSize = `83%`;
+                quiz.style.fontSize = `83%`;
+                result.style.fontSize = `83%`;
+            } else {
+                start.style.fontSize = ``;
+                guide.style.fontSize = ``;
+                quiz.style.fontSize = ``;
+                result.style.fontSize = ``;
+            }
+        }
       }
       if (this.status >= 400) {
         let greska = new Error("Request failed:" + xHr.statusText);
