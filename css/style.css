@@ -210,15 +210,15 @@
     cursor: pointer;
 }
 
-#scores {
+.scores {
     padding: 1em;
 }
 
-#scores ul li {
+.scores ul li {
     margin-bottom: 1em;
 }
 
-#scores ul li span {
+.scores ul li span {
     float: right;
 }
 
