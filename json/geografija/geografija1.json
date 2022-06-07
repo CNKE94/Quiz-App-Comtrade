@@ -55,11 +55,11 @@
     },
     {
         "questionNum": 7,
-        "question": "Koja je najmanja drzava na svetu?",
-        "a": "Gibraltar",
-        "b": "Američka Samoa",
-        "c": "Kajmanska ostrva",
-        "d": "Vatikan",
+        "question": "Koja je najveća država na svetu?",
+        "a": "Kanada",
+        "b": "Australija",
+        "c": "Rusija",
+        "d": "Kina",
         "correct": 3
     },
     {
