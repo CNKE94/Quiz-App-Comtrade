@@ -169,63 +169,69 @@ for (let i = 0; i < quizCheck.length; i++) {
 
 // After testing if pass is correct delete certain scores from Local Storage
 
+let patternPass = /^[\d]{4}$/; // check if is a number
+
 submit.addEventListener(`click` , function() {
     if (password.value == ``) {
         incorrectPass.innerHTML = `Prazno polje`;
         password.focus();
     } else {
-        if(password.value == pass) {
-            if(!allCheck.checked && !cultureCheck.checked && !historyCheck.checked && !geographyCheck.checked) {
-                incorrectPass.innerHTML = `Nije ništa čekirano`;
-            }
-            if(allCheck.checked) {
-                localStorage.clear();
-                highScoresListCulture.innerHTML = ``;
-                highScoresListHistory.innerHTML = ``;
-                highScoresListGeography.innerHTML = ``;
-
-                checkboxFilterC.style.display = 'none';
-                checkboxFilterH.style.display = 'none';
-                checkboxFilterG.style.display = 'none';
-        
-                removePopup();
-            }
-            if (cultureCheck.checked) {
-                if(localStorage.getItem(`highScoresC`) !== null) {
-                    localStorage.removeItem(`highScoresC`);
-                    highScoresListCulture.innerHTML = ``;
-                    checkboxFilterC.style.display = 'none';
-    
-                    removePopup();
-                } else {
-                    incorrectPass.innerHTML = `Skor je već prazan`;
-                }
-            }
-            if (historyCheck.checked) {
-                if(localStorage.getItem(`highScoresH`) !== null) {
-                    localStorage.removeItem(`highScoresH`);
-                    highScoresListHistory.innerHTML = ``;
-                    checkboxFilterH.style.display = 'none';
-    
-                    removePopup();
-                } else {
-                    incorrectPass.innerHTML = `Skor je već prazan`;
-                }
-            }
-            if (geographyCheck.checked) {
-                if(localStorage.getItem(`highScoresG`) !== null) {
-                    localStorage.removeItem(`highScoresG`);
-                    highScoresListGeography.innerHTML = ``;
-                    checkboxFilterG.style.display = 'none';
-    
-                    removePopup();
-                } else {
-                    incorrectPass.innerHTML = `Skor je već prazan`;
-                }
-            }
+        if(!patternPass.test(password.value)) {
+            incorrectPass.innerHTML = `Neispravan format šifre`;
         } else {
-            incorrectPass.innerHTML = `Netačna šifra`;
-            password.focus();
+            if(password.value == pass) {
+                if(!allCheck.checked && !cultureCheck.checked && !historyCheck.checked && !geographyCheck.checked) {
+                    incorrectPass.innerHTML = `Nije ništa čekirano`;
+                }
+                if(allCheck.checked) {
+                    localStorage.clear();
+                    highScoresListCulture.innerHTML = ``;
+                    highScoresListHistory.innerHTML = ``;
+                    highScoresListGeography.innerHTML = ``;
+    
+                    checkboxFilterC.style.display = 'none';
+                    checkboxFilterH.style.display = 'none';
+                    checkboxFilterG.style.display = 'none';
+            
+                    removePopup();
+                }
+                if (cultureCheck.checked) {
+                    if(localStorage.getItem(`highScoresC`) !== null) {
+                        localStorage.removeItem(`highScoresC`);
+                        highScoresListCulture.innerHTML = ``;
+                        checkboxFilterC.style.display = 'none';
+        
+                        removePopup();
+                    } else {
+                        incorrectPass.innerHTML = `Skor je već prazan`;
+                    }
+                }
+                if (historyCheck.checked) {
+                    if(localStorage.getItem(`highScoresH`) !== null) {
+                        localStorage.removeItem(`highScoresH`);
+                        highScoresListHistory.innerHTML = ``;
+                        checkboxFilterH.style.display = 'none';
+        
+                        removePopup();
+                    } else {
+                        incorrectPass.innerHTML = `Skor je već prazan`;
+                    }
+                }
+                if (geographyCheck.checked) {
+                    if(localStorage.getItem(`highScoresG`) !== null) {
+                        localStorage.removeItem(`highScoresG`);
+                        highScoresListGeography.innerHTML = ``;
+                        checkboxFilterG.style.display = 'none';
+        
+                        removePopup();
+                    } else {
+                        incorrectPass.innerHTML = `Skor je već prazan`;
+                    }
+                }
+            } else {
+                incorrectPass.innerHTML = `Netačna šifra`;
+                password.focus();
+            }
         }
     }
 });
@@ -380,24 +386,25 @@ window.addEventListener(`resize`, responsive);
 
 function responsive() {
     const width = window.innerWidth;
-    console.log(width);
     if(width < 768) {
         // Home page responsive
         wrapper.style.gridTemplateColumns = `1fr`;
         wrapper.style.gridTemplateRows = `29% 29% 29% 5%`;
         wrapper.style.height = `140vh`;
+        wrapper.style.fontSize = `80%`;
         general_culture.style.gridColumn = `span 3`;
         history1.style.gridColumn = `span 3`;
         geography.style.gridColumn = `span 3`;
         
     } else {
         // Home page responsive
-        wrapper.style.gridTemplateColumns = `1fr 1fr 1fr`;
-        wrapper.style.gridTemplateRows = `93% 6%`;
+        wrapper.style.gridTemplateColumns = ``;
+        wrapper.style.gridTemplateRows = ``;
+        wrapper.style.height = ``;
+        wrapper.style.fontSize = ``;
         general_culture.style.gridColumn = ``;
         history1.style.gridColumn = ``;
         geography.style.gridColumn = ``;
-        wrapper.style.height = `100vh`;
     }
 
     if (width < 700) {
